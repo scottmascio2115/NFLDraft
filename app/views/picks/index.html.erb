@@ -1,0 +1,47 @@
+<h1>The 2014 NFL Draft Presented by Chase</h1>
+
+<div id="draft">
+  <h5>Draft </h5>
+  <ul>
+    <% @picks.each do |pick| %>
+      <li>Round: <%= pick.round %> Pick: <%= pick.pick %>: <%= pick.team_name %> <%= pick.player.try(:name) %> <%= pick.player.try(:position) %></li>
+  <% end %>
+  </ul>
+</div>
+
+<div id="next-pick">
+  <%if @draft_over %>
+    <h5> Draft is Over</h5>
+  <% elsif @next_pick %>
+    <h5>Next Team to Pick </h5>
+    <ul>
+      <li>Round: <%= @next_pick.try(:round) %> Pick: <%= @next_pick.try(:pick) %>: <%= @next_pick.try(:team_name) %></li>
+    </ul>
+  <% else %>
+    <h5>Next Team to Pick </h5>
+    <ul>
+      <li>Round: 1 Pick: 1 : St.Louis Rams</li>
+    </ul>
+  <% end %>
+</div>
+
+<div id="last-three">
+  <% if @last_three_picks %>
+    <h5>Last Three Picks </h5>
+    <ul>
+      <% @last_three_picks.each do |player| %>
+        <li>Pick: <%= player.taken_number %>: <%= player.team.name %> <%= player.try(:name) %> <%= player.try(:position) %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div id="available">
+  <h5>Available Players </h5>
+  <ul>
+    <% @available_players.each do |player| %>
+      <li><%= player.name %>, Position: <%= player.position %></li>
+  <% end %>
+  </ul>
+</div>
+
