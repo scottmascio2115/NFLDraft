@@ -1,3 +1,18 @@
 NFL Mock Draft
 
+How to Begin the Draft:
+- Clone the repository
+- Bundle Install
+- rake db:create
+- rake db:migrate
+- Import Players, Teams and Order by running rake load:all
+- Run Rails s and go to port 3000 and See Order of Draft and Available Players
+- Begin Draft rake draft:start
+- Output of draft is displayed in console and on port 3000
+
+
+Run the Test Suite
+- run rake 
+
+
 
